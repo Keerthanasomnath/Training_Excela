@@ -51,9 +51,15 @@ public class Application {
 		print(service.findAll());
 		
 		Book react = new Book (205,"ReactJS","Rahul",6850);
-         service.update(react);
+         service.add(react);
          print(service.findAll());
            		
+         
+         Book reactNew = new Book (205,"ReactJS","Rahul Kanwal",7850);
+         service.update(react,reactNew);
+         System.out.println("======================AFTER UPDATE===============");
+         print(service.findAll());
+         System.out.println( service.update(react,reactNew));
 		
 	}
 }

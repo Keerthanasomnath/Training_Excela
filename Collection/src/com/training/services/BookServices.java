@@ -48,14 +48,13 @@ public class BookServices implements CrudRepository {
 
 
 	@Override
-	public Book update(Book book) {
-if(this.bookList.contains(book)) {
-	
-}else {
-	System.out.println("Inside ELSE BLOCK###########");
-	add(book);
-}
-		return null;
+	public Book update(Book oldBook,Book recentBook) {
+		if(bookList.contains(oldBook)) {
+			int idxPos=this.bookList.indexOf(oldBook);
+			this.bookList.set(idxPos, recentBook);
+		}
+		
+		return recentBook;
 	}
-
+	
 }

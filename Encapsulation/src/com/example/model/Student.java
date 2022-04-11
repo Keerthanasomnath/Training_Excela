@@ -21,6 +21,7 @@ public class Student {
 	public void setRollNumber(int rollNumber) {
 		this.rollNumber = rollNumber;
 	}
+	
 	public String getFirstName() {
 		return firstName;
 	}

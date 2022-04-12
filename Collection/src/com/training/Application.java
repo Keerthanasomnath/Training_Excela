@@ -1,9 +1,11 @@
 package com.training;
+import java.util.Collections;
 import java.util.List;
 
 import com.training.ifaces.CrudRepository;
 import com.training.model.Book;
 import com.training.services.BookServices;
+import com.training.utils.BookNameComparator;
 
 public class Application {
   
@@ -39,6 +41,7 @@ public class Application {
 		
 		
 		List<Book> bookList = service.findAll();
+		Collections.sort(bookList);
 
 
 
@@ -60,6 +63,20 @@ public class Application {
          System.out.println("======================AFTER UPDATE===============");
          print(service.findAll());
          System.out.println( service.update(react,reactNew));
+         
+         System.out.println("=========================================");
+         Collections.sort(bookList);
+         print(bookList);
+         
+         System.out.println("=========================================");
+         Collections.sort(bookList,new BookNameComparator());
+         System.out.println("Sort By BookName=========");
+
+         print(bookList);
+         
+         
+         
 		
+         
 	}
 }

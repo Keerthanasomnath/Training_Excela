@@ -14,9 +14,13 @@ public class HashMapApplication {
 		
 		System.out.println(map.put(900,ram));
 		System.out.println(map.put(902,shyam));
-		System.out.println(map.put(902,mukesh));
 		
+		Student added = map.put(902,mukesh);
+		if(added!=null) {
+			map.put(904,added);
+		}
 		System.out.println(map.get(902));
+		System.out.println(map.get(904));
 
 	}
 

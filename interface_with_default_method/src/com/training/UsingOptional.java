@@ -2,6 +2,8 @@ package com.training;
 
 import java.util.Optional;
 
+import com.training.ifaces.Conditional;
+
 public class UsingOptional {
 	
 	public static Optional <String> getValue(int key){
@@ -34,6 +36,8 @@ public class UsingOptional {
    
 	//to avoid nullpointer exception & return a default value
 //   new feature of java 8 optional is used 
+	    System.out.println(Conditional.getMessage());
+
 	Optional<Object> optional = Optional.ofNullable(getString(3)); 
        System.out.println(optional.orElse("vannila").toString());
   
@@ -46,9 +50,10 @@ public class UsingOptional {
    		System.out.println("Value is not present");
    	}
    	//Using Lambda Expression with optional
-    Optional<Object> opt3 = Optional.ofNullable(getString(3));
-    opt3.orElseThrow(
-    		()-> new RuntimeException("No obj for 3 try again"));
+    
+//   	Optional<Object> opt3 = Optional.ofNullable(getString(3));
+//    opt3.orElseThrow(
+//    		()-> new RuntimeException("No obj for 3 try again"));
 
     
     Optional<String> optionObj = getValue(2);

@@ -15,7 +15,7 @@ public class Application {
 			System.out.println(eachBook);
 		}
 	
-		
+		books.forEach(System.out::println);
 	}
 
 	
@@ -31,6 +31,8 @@ public class Application {
 		
 		CrudRepository service = new BookServices();
 	
+		
+		
 		System.out.println("Is added:="+service.add(java));
 		System.out.println("Is added:="+service.add(spring));
 		System.out.println("Is added:="+service.add(maven));
@@ -40,8 +42,8 @@ public class Application {
 		
 		
 		
-		List<Book> bookList = service.findAll();
-		Collections.sort(bookList);
+		List<Book> bookList1 = service.findAll();
+		Collections.sort(bookList1);
 
 
 
@@ -65,16 +67,19 @@ public class Application {
          System.out.println( service.update(react,reactNew));
          
          System.out.println("=========================================");
-         Collections.sort(bookList);
-         print(bookList);
+         Collections.sort(bookList1);
+         print(bookList1);
          
          System.out.println("=========================================");
-         Collections.sort(bookList,new BookNameComparator());
+         Collections.sort(bookList1,new BookNameComparator());
          System.out.println("Sort By BookName=========");
 
-         print(bookList);
+         print(bookList1);
          
-         
+         System.out.println("++++++++++++++++++++++++++++++++++++++++++");
+ 		List<Book> bookList = ((BookServices)service).getBookGrtThan(1000);
+ 		bookList.forEach(System.out::println);
+ 		System.out.println("++++++++++++++++++++++++++++++++");
          
 		
          

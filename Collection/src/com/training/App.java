@@ -15,7 +15,7 @@ public class App {
     names.add("Chandran");
     names.add("Somnath");
     names.add("Zahir");
-    names.add("Thandaiah");
+    names.add("sa");
     
     System.out.println(names);
     

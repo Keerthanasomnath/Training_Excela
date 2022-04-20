@@ -7,6 +7,7 @@ import com.training.model.Book;
 import com.training.services.BookServices;
 import com.training.utils.BookNameComparator;
 
+
 public class Application {
   
 	public static void print(List<Book> books) {
@@ -44,9 +45,6 @@ public class Application {
 		
 		List<Book> bookList1 = service.findAll();
 		Collections.sort(bookList1);
-
-
-
 		print(service.findAll());
 		
 		
@@ -80,7 +78,11 @@ public class Application {
  		List<Book> bookList = ((BookServices)service).getBookGrtThan(1000);
  		bookList.forEach(System.out::println);
  		System.out.println("++++++++++++++++++++++++++++++++");
-         
+ 		
+ 		
+ 		
+	
+
 		
          
 	}

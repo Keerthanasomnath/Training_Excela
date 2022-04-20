@@ -1,3 +1,4 @@
+
 package com.traing.model;
 
 import com.traing.exception.RangeCheckException;
@@ -14,7 +15,6 @@ public class Student {
 			try {
 				throw new RangeCheckException("Mark should be positive[0-100]");
 			} catch (RangeCheckException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

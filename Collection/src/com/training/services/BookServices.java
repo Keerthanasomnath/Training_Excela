@@ -1,10 +1,12 @@
 package com.training.services;
 import com.training.ifaces.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 
 import com.training.model.Book;
+import static java.util.stream.Collectors.*;
 
 public class BookServices implements CrudRepository {
 
@@ -57,8 +59,9 @@ public class BookServices implements CrudRepository {
 		return recentBook;
 		
 	}
+	
+	
 	public List<Book> getBookGrtThan(double price){
-		
 		 List<Book> grtThanList = new ArrayList<>();
 		 Predicate<Double> grtThan = (value)-> value>1000.00;
 		 this.bookList.forEach(book ->

@@ -17,8 +17,18 @@ try {
 	   return con;
    }
 	
-public Connection getPostgressConnection() {
-	
-	return null;
+public  static Connection getPostgressConnection() {
+	 Connection con = null;
+	 try {	   
+	 	   ResourceBundle lables = ResourceBundle.getBundle("application");
+	 	   con= DriverManager.getConnection(lables.getString("datasource.postgres.url"),
+	 			   lables.getString("datasource.postgres.username"),
+	 			   lables.getString("datasource.postgres.password"));
+	 	   
+	    }catch(SQLException e){
+	 	   e.printStackTrace();
+	    }
+	return con;
+	 	
 }
 }

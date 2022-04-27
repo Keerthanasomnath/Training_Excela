@@ -18,9 +18,33 @@ public class UsingStreams {
 	}
 	
 	public static void collectToMap(List<Book>bookList) {
+//		Set<Book> bookSet1 = bookList.stream().collect(toSet());
+		
 		Map<String,Double> values = bookList.stream().
-				filter(e->e.getPrice()>500).collect(toMap(Book::getBookName,Book::getPrice));
+				filter(e->e.getPrice()>500).distinct().collect(toMap(Book::getBookName,Book::getPrice));
+		
+		values.forEach((key,value) -> System.out.println(key+ "," +value));
 	}
+	public static void findMaxPrice(List<Book>bookList) {
+		Optional<Book> optional = bookList.stream().max(Comparator.comparing(Book::getPrice));
+		if(optional.isPresent()) {
+		  System.out.println("Maximum is "+optional.get().getPrice());
+		}
+	}
+	public static void findMinPrice(List<Book>bookList) {
+		Optional<Book> optional = bookList.stream().min(Comparator.comparing(Book::getPrice));
+		if(optional.isPresent()) {
+		  System.out.println("Minimum is "+optional.get().getPrice());
+		}
+	}
+	public static void count(List<Book>bookList) {
+		long  count = bookList.stream().
+				filter(e->e.getBookName().contains("y")).count();
+		System.out.println("Count of  y" +count);
+		
+	}
+
+	
 	
 	public static void main(String[]args) {
 		
@@ -34,7 +58,28 @@ public class UsingStreams {
 		
 		List<Book> bookList = Arrays.asList(java,spring,maven,html,python,javaNew,pythonNew);
 		
-		useDistinct(bookList);
+		int key = 5;
+		switch (key) {
+		case 1:
+			useDistinct(bookList);
+			break;
+		case 2:
+			collectToMap(bookList);
+			break;
+		case 3:
+			findMaxPrice(bookList);
+			break;
+		case 4:
+			findMinPrice(bookList);
+			break;
+		case 5:
+			count(bookList);
+
+		default:
+			break;
+		}
+		
+
 		
 	}
 }

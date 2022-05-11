@@ -20,7 +20,7 @@ import com.example.util.Product;
 public class App 
 {
 	public static void member() {
-//		Connection con;
+//		 Connection con;
 //        con = ConnectionFactory.getOracleConnection();
 ////con = DriverManager.getConnection
 ////					("jdbc:oracle:thin:@10.90.1.105:1521/DEV","HR","HR");
@@ -36,13 +36,17 @@ public class App
 	} 
 	public static void product() {
 		Connection con1;
-        con1 = ConnectionFactory.getPostgressConnection();
+        con1 = ConnectionFactory.getOracleConnection();
         System.out.println(con1);
         ProductService serv = new ProductService(con1);
-        Product prod = new Product(226, "UPS", 99990);
-        int add= serv.addProduct(prod);
-        System.out.println("Added: "+add);
-        serv.findAll().forEach(System.out::println);
+//        Product prod = new Product(226, "UPS", 99990);
+//        int add= serv.addProduct(prod);
+//        System.out.println("Added: "+add);
+              serv.findAll().forEach(System.out::println);
+              Product kathil = new Product(990,"kaju kathi",55.00);
+              Product jamun = new Product(991,"jamun",990);
+              
+        
 	}
     public static void main( String[] args ) {
          product();

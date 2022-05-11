@@ -113,4 +113,36 @@ public class ProductService {
 		return productList;
 	}
 	
+	public void usingTxntWith(Product product1,Invoice product2) {
+		String addProductsql="insert into KEEANISOMPRODUCT values(?,?,?)";
+		String sql="insert into KEEANISOMINVOICE values(?,?,?,?)";
+		
+		try(PreparedStatement pstmt=con.prepareStatement(sql);
+				PreparedStatement invoicepstmt=con.prepareStatement(addProductsql)
+				){
+			con.setAutoCommit(false);
+			pstmt.setInt(1, product1.getProductId());
+			pstmt.setString(2, product1.getProductName());
+			pstmt.setDouble(3, product1.getPrice());
+			
+			int rowAdded=pstmt.executeUpdate();
+			
+			invoicepstmt.setInt(1, product2.getInvoice_number());
+			invoicepstmt.setString(2, product2.getCustomer_name());
+			invoicepstmt.setInt(3,product2.getQuantity());
+			invoicepstmt.setInt(4, product2.getInvoice_number());
+			
+			int rowAdded2=invoicepstmt.executeUpdate();
+			con.commit();
+		}catch(SQLException e){
+			e.printStackTrace();
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+
+}
 }

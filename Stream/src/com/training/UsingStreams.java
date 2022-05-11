@@ -6,6 +6,7 @@ import java.util.Set;
 import static java.util.stream.Collectors.*;
 
 import com.training.model.Book;
+import com.training.services.BookService;
 
 public class UsingStreams {
 
@@ -74,6 +75,7 @@ public class UsingStreams {
 			break;
 		case 5:
 			count(bookList);
+		
 
 		default:
 			break;

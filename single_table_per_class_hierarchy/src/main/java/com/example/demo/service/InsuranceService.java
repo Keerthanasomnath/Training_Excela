@@ -41,7 +41,4 @@ public class InsuranceService {
 	public void getLifeInsurancePolicy() {
 		repo.findAll().forEach(System.out::println);
 	}
-	public void findHealthPolicyAll() {
-		repo.findHealthPolicyAll().forEach(System.out::println);
-	}
 }

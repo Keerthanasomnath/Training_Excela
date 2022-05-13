@@ -10,17 +10,17 @@ import com.example.demo.entity.LifeInsurance;
 import com.example.demo.service.InsuranceService;
 
 @SpringBootApplication
-public class TablePerSubClassApplication {
+public class SingleTablePerClassApplication {
 
 	public static void main(String[] args) {
-	ConfigurableApplicationContext ctx=	SpringApplication.run(TablePerSubClassApplication.class, args);
+	ConfigurableApplicationContext ctx =	SpringApplication.run(SingleTablePerClassApplication.class, args);
 	
 	InsuranceService service = ctx.getBean(InsuranceService.class);
-	service.findHealthPolicyAll();
-	ctx.close();
+//	service.addHealthPolicy();
+	service.addLifeInsurancePolicy();
+	
 	}
 
-	
 	@Bean
 	public LifeInsurance life() {
 		return new LifeInsurance(98765,"Rangesh",23,"IT services");
@@ -29,5 +29,4 @@ public class TablePerSubClassApplication {
 	public HealthInsurance health() {
 		return new HealthInsurance(9990,"Manish",56,"Diabetic");
 	}
-	
 }

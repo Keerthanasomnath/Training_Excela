@@ -22,7 +22,6 @@ ConfigurableApplicationContext ctx =SpringApplication.run(SpringDataJpaSimpleMap
 
 	}
 	
-	
 	@Bean
 	public Doctor munna() {
 		Doctor doc = new Doctor();

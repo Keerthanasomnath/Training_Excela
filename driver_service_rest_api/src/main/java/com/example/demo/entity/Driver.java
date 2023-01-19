@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="Keer_driver_2022")
 public class Driver {
+	
 
 
 	@Id
